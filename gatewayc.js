@@ -12,7 +12,7 @@ function loadingMask(param) {
         if ($('#loadingMask').length === 0) {
             $('body').append(loadingNode);
         }
-    } else if (param = 'hide') {
+    } else if (param == 'hide') {
         if ($('#loadingMask').length > 0) {
             $('#loadingMask').remove();
         }
@@ -43,7 +43,7 @@ function closeOverlay() {
 }
 function continueToSite() {
     loadingMask('hide');
-    if (XO.queryString.target !== "" && XO.queryString.target ! null) {
+    if (XO.queryString.target !== "" && XO.queryString.target !== null) {
         window.location = XO.queryString.target;
     } else {
         window.location = XO.siteInfo.link;

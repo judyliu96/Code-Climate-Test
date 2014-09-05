@@ -1,4 +1,4 @@
-var dropIDs = new Array(), dropIDsImp = new Array();
+var dropIDs = [], dropIDsImp = [];
 var memdatauid, sourceurl = window.location.href;
 var xoapikey = "39wnzksyn4kuewzxhqgacm86t8xtrur2cjq";
 var d = new Date();
@@ -6,21 +6,21 @@ var debug = true;
 
 //loading mask param str: 'show' / 'hide'
 function loadingMask(param) {
-    var loadingNode = '<div id="loadingMask" style="width: 100%;height: 100%;background: rgba(255,255,255,0.6) url(http://www.xoedge.com/gateway/071114/loading.gif) center no-repeat;position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 9999;text-align: center;"></div>'
+    var loadingNode = '<div id="loadingMask" style="width: 100%;height: 100%;background: rgba(255,255,255,0.6) url(http://www.xoedge.com/gateway/071114/loading.gif) center no-repeat;position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 9999;text-align: center;"></div>';
 
-    if (param == 'show') {
-        if ($('#loadingMask').length == 0) {
+    if (param === 'show') {
+        if ($('#loadingMask').length === 0) {
             $('body').append(loadingNode);
         }
-    } else if (param == 'hide') {
+    } else if (param = 'hide') {
         if ($('#loadingMask').length > 0) {
             $('#loadingMask').remove();
         }
     }
-};
+}
 
 function isOrigin() {
-    if ((tkjs.queryString.hasOwnProperty('origin') && tkjs.queryString.origin != 'modal') || !tkjs.queryString.hasOwnProperty('origin')) {
+    if ((tkjs.queryString.hasOwnProperty('origin') && tkjs.queryString.origin !== 'modal') || !tkjs.queryString.hasOwnProperty('origin')) {
         return true;
     } else {
         return false;
@@ -43,7 +43,7 @@ function closeOverlay() {
 }
 function continueToSite() {
     loadingMask('hide');
-    if (XO.queryString.target != "" && XO.queryString.target != null) {
+    if (XO.queryString.target !== "" && XO.queryString.target ! null) {
         window.location = XO.queryString.target;
     } else {
         window.location = XO.siteInfo.link;
@@ -75,13 +75,13 @@ function gatewayOptin(dropIDs, btn) {
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     loadingMask('hide');
-                    if (jqXHR.status == 409) {
+                    if (jqXHR.status === 409) {
                         $("#gatewayOverlay").html("<p>Oops! You already opted in for these offers.</p><a class='continue'>Continue</a>").show();
                     } else {
                         $("#gatewayOverlay").html("<p>" + jqXHR.responseText + "</p><a class='continue'>Continue</a>").show();
                     }
                 }
-            })
+            });
         },
         error: function (jqXHR, textStatus, errorThrown) {
             loadingMask('hide');
@@ -106,11 +106,11 @@ function selectedTrack(callback) {
                 adTier: sNub,
                 offersCount:iOffer
             });
-        };
+        }
         if (callback) { callback(); }
     } else {
         if (callback) { callback(); }
-    };
+    }
 }
 
 //page analytics track fn
@@ -123,7 +123,7 @@ function pageTrack(callback) {
         mobile: 'false',
         product: tkjs.siteInfo.domain
     }, function () {
-        if (debug) { console.log('pageTrack callback'); };
+        if (debug) { console.log('pageTrack callback'); }
         if (callback) { callback(); }
     });
 }
@@ -443,7 +443,6 @@ $('#currYr').html(d.getFullYear());
                 $("#gatewayOverlay").show();
                 console.log('XHR: ', jqXHR);
                 console.log('Status: ', textStatus);
-                console.log('Error: ', errorThrown);
                 console.log('Error: ', errorThrown);
             }
         });

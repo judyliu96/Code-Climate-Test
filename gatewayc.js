@@ -1,7 +1,7 @@
-var dropIDs = new Array(), dropIDsImp = new Array();
-var memdatauid, sourceurl = window.location.href;
-var xoapikey = "39wnzksyn4kuewzxhqgacm86t8xtrur2cjq";
-var d = new Date();
+//var dropIDs = new Array(), dropIDsImp = new Array();
+//var memdatauid, sourceurl = window.location.href;
+//var xoapikey = "39wnzksyn4kuewzxhqgacm86t8xtrur2cjq";
+//var d = new Date();
 var debug = true;
 
 //loading mask param str: 'show' / 'hide'

@@ -444,6 +444,7 @@ $('#currYr').html(d.getFullYear());
                 console.log('XHR: ', jqXHR);
                 console.log('Status: ', textStatus);
                 console.log('Error: ', errorThrown);
+                console.log('Error: ', errorThrown);
             }
         });
     }
